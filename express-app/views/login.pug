@@ -1,0 +1,15 @@
+extends layout/base.pug
+
+block prepend header
+    if error
+        div(class="alert alert-danger")= error
+    h2 Formulaie de connection    
+    form(method="post")
+        div(class="form-group")
+            label(for="mot_de_pass") Veuillez saisir votre mot de passe :
+            input(type="password" name="mot_de_passe" id="mot_de_passe")
+        div(class="form-group")
+            label(for="email") Votre adresse électronique :
+            input(type="email" name="email" id="email" required class="form-control")
+            div(class="form-group")
+            button(type="submit" class="btn btn-primary btn-block") Valider 

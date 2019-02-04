@@ -1,0 +1,23 @@
+extends layout/base.pug
+
+block content
+    h1 
+        em= article.titre
+    p publié le #{article.date_publication} par #{article.nom_auteur}
+    p= article.nb_commentaires
+    p= article.rubrique
+    h2 Commentaires (#{commentaires.length})
+    form(method="post")
+        div(class="form-group")
+            label(for="email") Votre adresse électronique :
+            input(type="email" name="email" id="email" required class="form-control")
+        div(class="form-group")
+            label(for="text") Votre commentaire :
+            textarea(name="texte", cols="30" row="5", id="texte" class="form-control")
+            div(class="form-group")
+            button(type="submit" class="btn btn-primary btn-block") Valider   
+    each commentaire in commentaires
+        div 
+            p par #{commentaire.email_id} le #{commentaire.date_creation}
+            p= commentaire.texte
+            hr

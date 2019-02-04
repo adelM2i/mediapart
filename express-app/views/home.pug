@@ -1,0 +1,45 @@
+extends layout/base.pug
+block content
+        h1 Bonjour #{username}
+        p= pageTitle
+        a(href="/hello/" + username + "/15") lien vers hello
+        //- Ici un commentaire
+             sur deux lignes
+
+        h1 #[em #{username}]
+
+        h1 
+            em= userName
+        ul
+
+        -for (index in fruitList)
+            li #{fruitList[index]}
+   
+            
+        table(border="1")
+      
+            tr
+                th id
+                th Nom
+                th Prénom
+            tr
+                td 1
+                td Didier
+                td M2i
+            each persone in personeList
+                tr   
+                    td= persone.id
+                    td= persone.name
+                    td= persone.firstName
+        table(class="table table-borderd table-striped") 
+            tr  
+                th Titre       
+                th Rubrique
+                th Auteur
+            each article in articleListe
+                tr
+                    td  
+                        //- lien vers article.titre #{}:interpelation de variables
+                        a(href="/article/" + article.id) #{article.titre} 
+                    td= article.rubrique
+                    td= article.nom_auteur                       

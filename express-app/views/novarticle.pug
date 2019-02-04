@@ -1,0 +1,30 @@
+extends layout/base.pug
+
+block content
+    h1 
+        em Nouvel article         
+    form(method="post" encType= "multipart/form-data")
+        div(class="form-group")
+            h6
+                label(for="titre") Veuillez saisir votre le titre :
+            textarea(type="text" name="titre" cols="55" rows="2" id="titre")
+        div(class="form-group")
+            h6
+                label(for="chapo") Veuillez saisir le chapô :
+        textarea(type= "text" name="chapo" cols="55" rows="5" id="chapo")
+        div
+            h6    
+                label(for="text") Votre texte :
+        textarea(type= "text" name="texte" cols="55" rows="15" id="texte")
+        div(class="form-group")
+            h6
+                label(for="photo") Votre image :
+            input(type="file" name ="photo" id="photo" class="form-control-file")
+        div(class="form-group")        
+            h6
+                label(for="text") Veuillez choisir votre rubrique :
+            select(name="rubrique" id="rubrique") 
+                each item in rubqListe
+                    option(value=item.id)= item.rubrique   
+        div(class="form-group")
+            button(type="submit" class="btn btn-primary") Valider 
